@@ -25,20 +25,24 @@ public class TreasureInteraction : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
-      if (InteractableState.Select == handGrab.State)
+      if (gameManager.canInteract)
       {
-         // Make loot disappear on click
-         audioSource.Play(0);
-         vanishingParticles.Play();
-         gameObject.SetActive(false);
-         gameManager.IncreaseScore(value);
-      }
-      else if (InteractableState.Hover == handGrab.State)
-      {
-         gameObject.GetComponent<Outline>().enabled = true;
-      } else
-      {
-         gameObject.GetComponent<Outline>().enabled = false;
+         if (InteractableState.Select == handGrab.State)
+         {
+            // Make loot disappear on click
+            audioSource.Play(0);
+            vanishingParticles.Play();
+            gameObject.SetActive(false);
+            gameManager.IncreaseScore(value);
+         }
+         else if (InteractableState.Hover == handGrab.State)
+         {
+            gameObject.GetComponent<Outline>().enabled = true;
+         }
+         else
+         {
+            gameObject.GetComponent<Outline>().enabled = false;
+         }
       }
    }
 }

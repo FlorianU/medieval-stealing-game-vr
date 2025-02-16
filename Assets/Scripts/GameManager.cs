@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
    public float currentScore = 0;
    public bool isPaused;
    public bool canInteract;
+   public bool patrolsActive;
    public bool isTimerActive;
    private float currentTime;
 
@@ -37,7 +38,6 @@ public class GameManager : MonoBehaviour
    // Start is called before the first frame update
    void Start()
    {
-      TogglePause();
       instructionsScreen.SetActive(true);
    }
 
@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
    public void StartGame()
    {
       canInteract = true;
-      TogglePause();
+      patrolsActive = true;
+      // TogglePause();
       instructionsScreen.SetActive(false);
    }
 

@@ -70,7 +70,7 @@ public class PatrolMovement : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
-      if (GameManager.Instance.isPaused)
+      if (GameManager.Instance.isPaused || !GameManager.Instance.patrolsActive)
       {
          return;
       }
@@ -129,7 +129,7 @@ public class PatrolMovement : MonoBehaviour
          // Disable picking up objects and loot
          GameManager.Instance.DisableInteraction();
 
-         if (Vector3.Distance(this.transform.position, player.transform.position) < 1)
+         if (Vector3.Distance(this.transform.position, player.transform.position) < 1.2)
          {
             GameManager.Instance.EndGame();
          }
